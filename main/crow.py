@@ -64,10 +64,10 @@ class InquiryAdmin(sqla.ModelView):
         }
     }
     form_choices = {'status': [ 
-                    ('0', 'Pending'),
-                    ('1', 'Accepted'),
-                    ('2', 'Declined'),
-                    ('3', 'For follow up')
+                    ('Pending', 'Pending'),
+                    ('Accepted', 'Accepted'),
+                    ('Declined', 'Declined'),
+                    ('For follow up', 'For follow up')
                     ]}
 
 
