@@ -70,14 +70,9 @@ class InquiryAdmin(sqla.ModelView):
                     ('3', 'For follow up')
                     ]}
 
+
 admin = Admin(app, name='crow')
 admin.add_view(InquiryAdmin(Inquiry, db.session))
-
-
-@app.route('/',methods=['GET','POST'])
-def index():
-    inquiries = Inquiry.query.order_by(Inquiry.created_at).desc()
-    return flask.render_template('index.html',inquiries=inquiries)
 
 
 @app.route('/inquiry/receive',methods=['GET','POST'])
@@ -94,7 +89,7 @@ def receive_inquiry():
     db.session.commit()
 
     # REPLY
-    content = 'Thank you for using our hotline. Our representative will call you in a few minutes. This message is free.'
+    content = 'Thank you for your interest in our services. Our representative will call you in a few minutes. (This message is free)'
     message_options = {
             'app_id': APP_ID,
             'app_secret': APP_SECRET,
